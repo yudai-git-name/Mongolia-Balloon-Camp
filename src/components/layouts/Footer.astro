@@ -1,0 +1,162 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <ul class="footer__items">
+      <li class="footer__item">
+        <p class="footer__item--head">アクティビティ</p>
+        <ul class="footer__child-items">
+          <li class="footer__child-item">大地から</li>
+          <li class="footer__child-item">空から</li>
+          <li class="footer__child-item">川から</li>
+        </ul>
+      </li>
+      <li class="footer__item">
+        <p class="footer__item--head">キャンプについて</p>
+        <ul class="footer__child-items">
+          <li class="footer__child-item">よくあるご質問</li>
+          <li class="footer__child-item">会社概要</li>
+        </ul>
+      </li>
+      <li class="footer__item">
+        <p class="footer__item--head">旅行例</p>
+        <ul class="footer__child-items">
+          <li class="footer__child-item">
+            モンゴル４〜６日間<br />大草原で乗馬・遊牧民訪問
+          </li>
+          <li class="footer__child-item">
+            モンゴル４〜６日間<br />大草原で乗馬・川下り
+          </li>
+          <li class="footer__child-item">
+            モンゴル５〜６日間<br />大草原で乗馬・熱気球と<br />カラコロム観光
+          </li>
+          <li class="footer__child-item">
+            モンゴル４〜６日間<br />大草原で乗馬・熱気球
+          </li>
+        </ul>
+      </li>
+      <li class="footer__item">
+        <p class="footer__item--head">フォトギャラリー</p>
+      </li>
+      <li class="footer__item">
+        <p class="footer__item--head">ぼるふ〜草原記</p>
+        <ul class="footer__child-items">
+          <li class="footer__child-item">ぼるふ〜草原記へようこそ！</li>
+          <li class="footer__child-item">草原記</li>
+          <li class="footer__child-item">モンゴル人</li>
+          <li class="footer__child-item">目指せ！遊牧民</li>
+          <li class="footer__child-item">モンゴルの遊び</li>
+          <li class="footer__child-item">料理</li>
+        </ul>
+      </li>
+    </ul>
+    <p class="footer__text">
+      このサイトは株式会社フリーバード様のご協力のもと作成したコーディング用の練習課題です。実在の人物・団体とは関係ありません。
+    </p>
+  </div>
+  <p class="footer__copy-right">
+    Copyright &copy;モンゴルバルーンキャンプ All rights reserved.
+  </p>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--bgTertiary);
+    color: var(--bgSecondary);
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .footer__inner {
+    max-width: calc(950px + 20px * 2);
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 20px;
+    border-bottom: 1px solid var(--borderPrimary);
+		padding-bottom: 30px;
+  }
+
+  .footer__items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 50px;
+    max-width: 875px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .footer__item {
+    position: relative;
+    font-size: 12px;
+    line-height: calc(18 / 12);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer__item--head {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .footer__item--head::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background-color: var(--bgSecondary);
+    border-radius: 100vmax;
+  }
+
+  .footer__item--head::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 1px);
+    transform: translateY(-50%);
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    background-color: var(--bgTertiary);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+
+  .footer__child-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__child-item {
+    position: relative;
+    padding-left: 20px;
+    white-space: nowrap;
+  }
+
+  .footer__child-item::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    background-color: var(--bgSecondary);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+
+  .footer__text {
+    max-width: 644px;
+    width: 100%;
+    margin-inline: auto;
+    font-size: 16px;
+    line-height: calc(24 / 16);
+    margin-top: 40px;
+  }
+
+  .footer__copy-right {
+		text-align: center;
+		font-size: 12px;
+		line-height: calc(14.4 / 12);
+		margin-top: 10px;
+  }
+</style>

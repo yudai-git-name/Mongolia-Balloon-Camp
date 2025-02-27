@@ -1,0 +1,263 @@
+---
+import { Image } from 'astro:assets';
+import TitlePrimary from '../../elements/Title/TitlePrimary.astro';
+import ButtonPrimary from '../../elements/Button/ButtonPrimary.astro';
+
+import charmImage01 from '../../../images/index/charm/charm_item01.png';
+import charmImage02 from '../../../images/index/charm/charm_item02.png';
+import charmImage03 from '../../../images/index/charm/charm_item03.png';
+import charmImage04 from '../../../images/index/charm/charm_item04.png';
+import charmImage05 from '../../../images/index/charm/charm_item05.png';
+import charmImage06 from '../../../images/index/charm/charm_item06.png';
+import charmImage07 from '../../../images/index/charm/charm_item07.png';
+import charmImage08 from '../../../images/index/charm/charm_item08.png';
+import charmImage09 from '../../../images/index/charm/charm_item09.png';
+
+const charmBoxes = [
+  {
+    number: '01',
+    title: 'モンゴルで唯一！<br />気球に乗れるキャンプ場',
+    description:
+      'モンゴル気球連盟に加入し、政府からフライト許可を得てお客様を載せてフリーフライトしているのはモンゴルバルーンキャンプだけです。モンゴルで気球を上げ続けて20年の伝統があります。日本人の一流パイロットが操縦し、日本の保険にも加入しています。気球に乗り自然のままに蛇行するトーラ川や動物達、どこまでも続く大草原を上空1,000フィートからお楽しみください。',
+    images: [
+      { src: charmImage01, alt: '気球とモンゴルの大草原' },
+      { src: charmImage02, alt: 'キャンプ場での気球準備' },
+      { src: charmImage03, alt: '気球からの眺め' },
+    ],
+    button: { href: '/', text: '気球特設ページはこちら' },
+  },
+  {
+    number: '02',
+    title: '広大な草原の中にある<br />特別なキャンプ場',
+    description:
+      '遊牧民と結婚した友子さんがキャンプ場長を務めています。言語も文化も違うモンゴルの地で安全に、そして快適にお客様に過ごしていただけるよう、スタッフ一同心を込めてサポートいたします。旅に関する心配事やご要望がありましたら、いつでもご相談ください。友子さんはモンゴル文化や遊牧民の生活をブログで紹介しています。読んだらモンゴル通になれること間違いなしです！',
+    images: [
+      { src: charmImage04, alt: '広大なモンゴルの草原' },
+      { src: charmImage05, alt: 'ゲルのキャンプ場' },
+      { src: charmImage06, alt: '満天の星空' },
+    ],
+    button: { href: '/', text: 'ぼるふ〜草原記を読む' },
+  },
+  {
+    number: '03',
+    title: '伝統と文化に触れる<br />ユニークなアクティビティ',
+    description:
+      'ウランバートルから南西へ200km。都市から離れた大自然のど真ん中にあるので、美しい大草原や山々を一望できます。夜は周囲に光が全くないので、満天の星空と天の川を見ることができます。そんな大自然の中で、熱気球フライトは勿論、乗馬や川下り、フィッシングなど他では真似のできない多彩なオプショナルツアーをご用意しております。',
+    images: [
+      { src: charmImage07, alt: 'モンゴルの遊牧民' },
+      { src: charmImage08, alt: '乗馬体験' },
+      { src: charmImage09, alt: 'モンゴル相撲' },
+    ],
+    button: { href: '/', text: 'アクティビティ詳細はこちら' },
+  },
+];
+---
+
+<section class="charm">
+  <div class="charm__inner">
+    <div class="charm__head">
+      <div class="charm__head--inner">
+        <h2 class="charm__head--heading2">
+          <span class="is-top">モンゴルバルーンキャンプ</span>
+          <span class="is-bottom"><span class="is-bigger">3</span>つの魅力</span
+          >
+        </h2>
+        <p class="charm__head--subTitle">ここがすごい！</p>
+      </div>
+    </div>
+    <div class="charm__boxes">
+      {
+        charmBoxes.map((charm) => (
+          <div class="charm__box">
+            <div class="charm__box--body">
+              <div class="charm__box--body--head">
+                <p class="charm__box--body--head--number">{charm.number}</p>
+                <h3
+                  class="charm__box--body--head--heading3"
+                  set:html={charm.title}
+                />
+              </div>
+              <div class="charm__box--body--textWrap">
+                <p class="charm__box--body--text">{charm.description}</p>
+              </div>
+              <div class="charm__box--body-button">
+                <ButtonPrimary
+                  href={charm.button.href}
+                  text={charm.button.text}
+                />
+              </div>
+            </div>
+            <div class="charm__box--images">
+              {charm.images.map((image) => (
+                <div class="charm__box--image">
+                  <Image class="image" src={image.src} alt={image.alt} />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .charm {
+    margin-top: 90px;
+  }
+
+  .charm__inner {
+    max-width: calc(950px + 20px * 2);
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .charm__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+	.charm__head--inner {
+		position: relative;
+	}
+
+  .charm__head--heading2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .charm__head--heading2 .is-top,
+  .charm__head--heading2 .is-bottom {
+    font-size: 30px;
+    line-height: calc(45 / 30);
+    font-weight: 700;
+  }
+  .charm__head--heading2 .is-bottom {
+    position: relative;
+  }
+  .charm__head--heading2 .is-bottom::before,
+  .charm__head--heading2 .is-bottom::after {
+    content: '';
+    position: absolute;
+    width: 33px;
+    height: 47px;
+  }
+  .charm__head--heading2 .is-bottom::before {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -50px;
+    background-image: url(../../../images/_common/icon/icon_kirakira-type01.svg);
+  }
+  .charm__head--heading2 .is-bottom::after {
+    top: 0;
+    right: -40px;
+    background-image: url(../../../images/_common/icon/icon_kirakira-type02.svg);
+  }
+  .charm__head--heading2 .is-bottom .is-bigger {
+    font-size: 42px;
+    line-height: calc(63 / 42);
+    font-family: var(--fontOswald);
+    font-weight: 500;
+  }
+
+  .charm__head--subTitle {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: calc(30 / 20);
+    transform: rotate(-16deg);
+  }
+
+  .charm__head--subTitle::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -20px;
+    width: 173px;
+    height: 42px;
+    background-image: url(../../../images/_common/icon/icon_border.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(12deg);
+  }
+
+  .charm__boxes {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .charm__box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .charm__box:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+
+  .charm__box--body {
+    max-width: calc((450 / 950) * 100%);
+    width: 100%;
+  }
+
+  .charm__box--body--head {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .charm__box--body--head--number {
+    font-size: 65px;
+    line-height: calc(96.33 / 65);
+    font-family: var(--fontOswald);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .charm__box--body--head--heading3 {
+    font-size: 28px;
+    line-height: calc(42 / 28);
+    font-weight: 700;
+    border-left: 3px solid var(--borderSecondary);
+    padding-left: 20px;
+  }
+
+  .charm__box--body--textWrap {
+    margin-top: 25px;
+  }
+
+  .charm__box--body--text {
+    line-height: calc(30.6 / 18);
+  }
+
+  .charm__box--body-button {
+    margin-top: 44px;
+    max-width: 350px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .charm__box--images {
+    max-width: calc((450 / 950) * 100%);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .charm__box--images .charm__box--image:nth-child(1) {
+    grid-column: span 2 / span 2;
+  }
+
+  .charm__box--image .image {
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+
+import Logo from '../../images/_common/logo/logo.svg';
+import IconHome from '../../images/_common/icon/icon_home.svg';
+
+const navItems1 = [
+  { icon: IconHome, label: '', isIcon: true },
+  { label: 'アクティビティ' },
+  { label: 'キャンプについて' },
+];
+
+const navItems2 = [
+  { label: '旅行例' },
+  { label: 'フォトギャラリー' },
+  { label: 'ぼるふ〜草原記' },
+];
+---
+
+<header class="header">
+  <div class="header__inner">
+    <h1 class="header__heading1">
+      <Image class="header__heading1--logo" src={Logo} alt="サイトロゴ" />
+    </h1>
+    <nav class="header__nav --left">
+      <ul class="header__nav--items">
+        {
+          navItems1.map((item) => (
+            <li class="header__nav--item">
+              {item.isIcon ? <Image class="img" src={item.icon} alt="Home" /> : item.label}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <nav class="header__nav --right">
+      <ul class="header__nav--items">
+        {
+          navItems2.map((item) => (
+            <li class="header__nav--item">{item.label}</li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: var(--bgHeader);
+    height: 100px;
+  }
+
+  .header__inner {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .header__heading1 {
+    order: 2;
+  }
+
+  .header__heading1--logo {
+  }
+
+  .header__nav {
+  }
+  .header__nav.--left {
+    order: 1;
+  }
+  .header__nav.--right {
+    order: 3;
+  }
+
+  .header__nav--items {
+    display: flex;
+    align-items: center;
+		gap: 2px;
+  }
+
+  .header__nav--item {
+		position: relative;
+    background-color: var(--bgTertiary);
+    color: var(--bgSecondary);
+		font-size: 14px;
+		width: 130px;
+		height: 60px;
+		line-height: 60px;
+		border-radius: 5px;
+		text-align: center;
+  }
+
+	.header__nav--item .img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 20px;
+	}
+</style>

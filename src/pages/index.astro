@@ -1,11 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Fv from '../components/layouts/Fv.astro'
+import * as Sections from '../components/layouts/Sections/_index';
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <Fv />
+    <Sections.Charm />
+    <Sections.Balloon />
+    <Sections.Nomad />
+    <Sections.Camp />
+    <Sections.Voice />
+    <Sections.Qa />
+    <Sections.Message />
+    <Sections.Contact />
+  </main>
 </Layout>

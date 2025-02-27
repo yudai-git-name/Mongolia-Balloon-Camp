@@ -1,0 +1,48 @@
+---
+import '@splidejs/splide/dist/css/splide.min.css';
+import { Image } from 'astro:assets';
+
+import Fv01 from '../../images/index/fv/fv_01.png';
+import Fv02 from '../../images/index/fv/fv_02.png';
+import Fv03 from '../../images/index/fv/fv_03.png';
+---
+
+<div class="fv">
+  <div class="fv__inner">
+    <div class="fv__slider">
+      <div class="splide" aria-label="Splideの基本的なHTML">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <Image src={Fv01} alt="" />
+            </li>
+            <li class="splide__slide">
+              <Image src={Fv02} alt="" />
+            </li>
+            <li class="splide__slide">
+              <Image src={Fv03} alt="" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import Splide from '@splidejs/splide';
+
+  new Splide('.splide', {
+    perMove: 1, // 1度で何枚のスライドを移動するか指定
+    type: 'loop', // デフォルトはスライド（slide）
+    // autoplay: true, // 自動再生
+    interval: 5000, // 自動再生の間隔
+    speed: 1000, // スライダーの移動時間
+    rewind: true, // スライダーの終わりまで行ったら先頭に巻き戻す（デフォルトはfalse）
+    pauseOnHover: false, // カーソルが乗ってもスクロールを停止させない
+    pauseOnFocus: false, // 矢印をクリックしてもスクロールを停止させない
+    focus: 'center', // 中央のスライドを表示
+    arrows: false, //arrowsを削除
+    pagination: false, //ページネーションを削除
+  }).mount();
+</script>

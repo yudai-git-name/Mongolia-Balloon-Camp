@@ -1,0 +1,30 @@
+---
+const { href = '#', text = 'ボタン' } = Astro.props;
+---
+
+<a href={href} class="buttonPrimary">{text}</a>
+
+<style>
+  .buttonPrimary {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background-color: var(--bgTertiary);
+    color: var(--textSecondary);
+    padding-block: 22px;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+
+  .buttonPrimary::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 2px);
+		transform: translateY(-50%);
+    right: 28px;
+    width: 13px;
+    height: 13px;
+    background-color: var(--bgSecondary);
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+  }
+</style>

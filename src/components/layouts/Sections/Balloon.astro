@@ -1,0 +1,337 @@
+---
+import TitlePrimary from '../../elements/Title/TitlePrimary.astro';
+import { Image } from 'astro:assets';
+
+import balloonCardImage from '../../../images/index/balloon/balloon_img.png';
+import iconHotel from '../../../images/_common/icon/icon_hotel.svg';
+import iconCamp from '../../../images/_common/icon/icon_camp.svg';
+import iconShoesType01 from '../../../images/_common/icon/icon_shoes-type01.svg';
+import iconShoesType02 from '../../../images/_common/icon/icon_shoes-type02.svg';
+import iconBuilding from '../../../images/_common/icon/icon_building.svg';
+import iconCar from '../../../images/_common/icon/icon_car.svg';
+import iconHorse from '../../../images/_common/icon/icon_horse.svg';
+import iconBalloon from '../../../images/_common/icon/icon_balloon.svg';
+import iconStar from '../../../images/_common/icon/icon_star.svg';
+import iconBag from '../../../images/_common/icon/icon_bag.svg';
+
+const scheduleData = [
+  {
+    date: '1日目',
+    schedule: [
+      {
+        text: '14:40 成田空港よりモンゴル航空にてウランバートルへ',
+        icon: iconShoesType01,
+      },
+      {
+        text: '19:10 チンギスハン国際空港着 日本語ガイドがお出迎え',
+        icon: iconShoesType02,
+      },
+      {
+        text: '空港より約40分のモンゴルの緑に囲まれたモンゴリカホテル&リゾートへご案内',
+        icon: iconBuilding,
+      },
+    ],
+    meal: '朝 ×<br>昼 ×<br>夜 ○',
+    hotel: { name: 'モンゴルホリデーリゾート', icon: iconHotel },
+  },
+  {
+    date: '2日目',
+    schedule: [
+      {
+        text: '朝食後、車でモンゴルバルーンキャンプ場へ（200km約4時間）',
+        icon: iconCar,
+      },
+      {
+        text: '午後：遊牧民インストラクターより乗馬レッスン、乗馬で大草原・遊牧民ゲル訪問',
+        icon: iconHorse,
+      },
+      {
+        text: '熱気球フライト ※日本人ベテランパイロットが夕方か翌朝の風の穏やかな時間帯を選び、安全にフライトします。',
+        icon: iconBalloon,
+      },
+      {
+        text: '夜：満天の星をお楽しみください（銀マットと温かいお飲物をご用意いたします）',
+        icon: iconStar,
+      },
+    ],
+    meal: '朝 ○<br>昼 ○<br>夜 ○',
+    hotel: { name: 'モンゴルバルーンキャンプ', icon: iconCamp },
+  },
+  {
+    date: '3日目',
+    schedule: [
+      { text: '朝：乗馬トレッキング', icon: iconHorse },
+      { text: '昼食後、車でウランバートルへ（約4時間）', icon: iconCar },
+      {
+        text: '午後：日本語ガイドとウランバートル市内観光 スフバートル広場やノミンデパートでショッピング',
+        icon: iconBag,
+      },
+    ],
+    meal: '朝 ○<br>昼 ○<br>夜 ○',
+    hotel: { name: 'モンゴリカホテル&リゾート', icon: iconHotel },
+  },
+  {
+    date: '4日目',
+    schedule: [
+      { text: 'ホテルから空港へ送迎', icon: iconCar },
+      {
+        text: '07:55 チンギスハン国際空港よりモンゴル航空にて成田空港へ',
+        icon: iconShoesType01,
+      },
+      { text: '13:40 成田空港着', icon: iconShoesType02 },
+    ],
+    meal: '朝 ○<br>昼 ×<br>夜 ×',
+    hotel: { name: '-', icon: null },
+  },
+];
+---
+
+<section class="balloon">
+  <div class="balloon__inner">
+    <div class="balloon__head">
+      <div class="balloon__head--inner">
+        <h2 class="balloon__head--heading2">モンゴル唯一の気球ツアー</h2>
+        <p class="balloon__head--stb-title">おすすめNO.1！</p>
+      </div>
+      <p class="balloon__description">
+        モンゴルバルーンキャンプと言えば、なんと言っても気球！
+        <br
+        />果てなく続く大草原、壮大なトーラ川を眺めながら「空の散歩」をぜひお楽しみください。
+      </p>
+    </div>
+    <div class="balloon__card">
+      <div class="cardPrimary">
+        <div class="cardPrimary__body">
+          <h3 class="cardPrimary__body--heading3">
+            モンゴルの大草原を吹き抜ける風になる<br
+            />熱気球・乗馬ツアー　4〜6日間
+          </h3>
+          <p class="cardPrimary__body--price">104,000円〜</p>
+          <div class="cardPrimary__body--textWrap">
+            <p class="cardPrimary__body--text">
+              日の出（夕日）とともにフライトする熱気球から見る最高の景色はきっと一生忘れられない思い出となるでしょう。ウンドゥルシレットの大草原で乗馬も楽しむことができ、4〜6日間でモンゴルを精一杯楽しんでいただけるプランです。
+            </p>
+          </div>
+        </div>
+        <div class="cardPrimary__image">
+          <Image src={balloonCardImage} alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="balloon__table">
+      <h3 class="balloon__table--heading3">4日間ツアー例</h3>
+      <table>
+        <thead>
+          <tr>
+            <th class="table__head">日付</th>
+            <th class="table__head">スケジュール</th>
+            <th class="table__head">食事</th>
+            <th class="table__head">宿泊地</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            scheduleData.map((day) => (
+              <tr>
+                <td class="table__date">{day.date}</td>
+                <td class="table__schedule">
+                  {day.schedule.map((event) => (
+                    <div class="table__schedule--row">
+                      <p>{event.text}</p>
+                      <Image
+                        class="table__schedule--icon"
+                        src={event.icon}
+                        alt=""
+                      />
+                    </div>
+                  ))}
+                </td>
+                <td class="table__meal" set:html={day.meal} />
+                <td class="table__accommodation">
+                  <span class="table__accommodation--text">
+                    {day.hotel.name}
+                  </span>
+                  {day.hotel.icon && (
+                    <Image
+                      class="table__accommodation--icon"
+                      src={day.hotel.icon}
+                      alt=""
+                    />
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .balloon {
+    padding-block: 90px;
+    background-image: url(../../../images/index/balloon/balloon_bg.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .balloon__inner {
+    max-width: calc(1000px + 20px * 2);
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  .balloon__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .balloon__head--inner {
+    position: relative;
+  }
+
+  .balloon__head--heading2 {
+    font-size: 30px;
+    line-height: calc(45 / 30);
+    font-weight: 700;
+  }
+
+  .balloon__head--stb-title {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: calc(30 / 20);
+    transform: rotate(-16deg);
+  }
+
+  .balloon__head--stb-title::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -20px;
+    width: 173px;
+    height: 42px;
+    background-image: url(../../../images/_common/icon/icon_border.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(12deg);
+  }
+
+  .balloon__description {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+    line-height: calc(30 / 20);
+  }
+
+  .balloon__card {
+    margin-top: 30px;
+  }
+
+  .cardPrimary {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 25px;
+    justify-content: space-between;
+    background-color: var(--bgSecondary);
+    padding-right: 30px;
+  }
+
+  .cardPrimary__body {
+    /* max-width: calc((615 / 1000) * 100%); */
+    width: 100%;
+  }
+
+  .cardPrimary__body--heading3 {
+    font-size: 24px;
+    line-height: calc(36 / 24);
+    font-weight: 700;
+  }
+
+  .cardPrimary__body--price {
+    font-size: 24px;
+    line-height: calc(36 / 24);
+    color: var(--textTertiary);
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .cardPrimary__body--textWrap {
+    margin-top: 15px;
+    line-height: calc(27 / 18);
+  }
+  .cardPrimary__body--text {
+  }
+
+  .cardPrimary__image {
+    max-width: calc((330 / 1000) * 100%);
+    width: 100%;
+  }
+
+  .balloon__table {
+    margin-top: 50px;
+  }
+
+  .balloon__table--heading3 {
+    text-align: center;
+    font-size: 30px;
+    line-height: calc(45 / 30);
+    font-weight: 700;
+  }
+
+  table {
+    margin-top: 30px;
+    background-color: var(--bgSecondary);
+    table-layout: fixed;
+    border-left: 1px solid var(--borderSecondary);
+    border-right: 1px solid var(--borderSecondary);
+  }
+
+  thead {
+    background-color: var(--bgTertiary);
+    color: var(--bgSecondary);
+    border: 1px solid var(--borderSecondary);
+  }
+
+  .table__head {
+    /* padding-top: 8px;
+		padding-bottom: 7px; */
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    height: 42px;
+    padding-inline: 12px;
+    font-weight: 400;
+    border-right: 1px dotted #333333cc;
+  }
+
+  .table__date {
+  }
+
+  .table__schedule {
+  }
+
+  .table__schedule--row {
+  }
+
+  .table__schedule--icon {
+    width: 26px;
+  }
+
+  .table__meal {
+  }
+
+  .table__accommodation {
+  }
+
+  .table__accommodation--icon {
+    width: 33px;
+  }
+</style>

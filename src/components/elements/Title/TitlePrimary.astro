@@ -1,0 +1,75 @@
+<!-- ---
+const { titleTop = '' } = Astro.props;
+---
+
+<h2 class="charm__head--heading2">
+  {titleTop}
+</h2>
+<p class="charm__head--subTitle">{subTitle}</p>
+
+<style>
+  .charm__head--heading2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .charm__head--heading2 .is-top,
+  .charm__head--heading2 .is-bottom {
+    font-size: 30px;
+    line-height: calc(45 / 30);
+    font-weight: 700;
+  }
+  .charm__head--heading2 .is-bottom {
+    position: relative;
+  }
+  /* .charm__head--heading2 .is-bottom::before,
+  .charm__head--heading2 .is-bottom::after {
+    content: '';
+    position: absolute;
+    width: 33px;
+    height: 47px;
+  }
+  .charm__head--heading2 .is-bottom::before {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -50px;
+    background-image: url(../../../images/_common/icon/icon_kirakira-type01.svg);
+  }
+  .charm__head--heading2 .is-bottom::after {
+    top: 0;
+    right: -40px;
+    background-image: url(../../../images/_common/icon/icon_kirakira-type02.svg);
+  } */
+  .charm__head--heading2 .is-bottom .is-bigger {
+    font-size: 42px;
+    line-height: calc(63 / 42);
+    font-family: var(--fontOswald);
+    font-weight: 500;
+  }
+
+  .charm__head--subTitle {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: calc(30 / 20);
+    transform: rotate(-16deg);
+  }
+
+  .charm__head--subTitle::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: -20px;
+    width: 173px;
+    height: 42px;
+    background-image: url(../../../images/_common/icon/icon_border.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(12deg);
+  }
+</style> -->
